@@ -86,7 +86,7 @@ sub send {
 
 sub DEMOLISH {
     my ($self) = @_;
-    my $req = GET($self->construct_req_uri('login', action => 'logout'));
+    my $req = GET($self->req_uri('login', action => 'logout'));
     $self->send($req);
 }
 
