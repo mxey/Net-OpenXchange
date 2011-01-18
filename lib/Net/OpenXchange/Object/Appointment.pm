@@ -6,7 +6,11 @@ with qw(
     Net::OpenXchange::Object
     Net::OpenXchange::Data::Common
     Net::OpenXchange::Data::TaskAppointment
-    Net::OpenXchange::Data::Appointment
 );
+
+# Seperated in two blocks because Data::Appointment requires
+# an attribute that is defined by Data::TaskAppointment
+
+with 'Net::OpenXchange::Data::Appointment';
 
 __PACKAGE__->meta->make_immutable;
