@@ -56,6 +56,7 @@ sub req_uri {
     my ($self, $path, %params) = @_;
     my $uri = URI->new($self->uri . '/' . $path);
     $params{session} = $self->session if $self->session;
+    $params{timezone} = 'UTC';
     $uri->query_form(%params);
     return $uri;
 }
