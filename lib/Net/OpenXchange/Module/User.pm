@@ -1,6 +1,9 @@
 package Net::OpenXchange::Module::User;
 use Moose;
 use namespace::autoclean;
+
+# ABSTRACT: OpenXchange user module
+
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::User;
 
@@ -48,3 +51,23 @@ sub list {
 }
 
 __PACKAGE__->meta->make_immutable;
+
+=head1 DESCRIPTION
+
+Net::OpenXchange::Module::User interfaces with the user API of OpenXchange. It
+works with instances of Net::OpenXchange::Object::User.
+
+When using Net::OpenXchange, an instance of this class is provided as the user
+attribute.
+
+=method all
+
+    my @users = $module_user->all();
+
+Fetch all users and return a list of them.
+
+=method list
+
+    my @users = $module_user->list(@ids);
+
+Fetch users with given IDs and return a list of them.

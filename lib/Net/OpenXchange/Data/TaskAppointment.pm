@@ -1,6 +1,9 @@
 package Net::OpenXchange::Data::TaskAppointment;
 use Moose::Role;
 use namespace::autoclean;
+
+# ABSTRACT: OpenXchange detailed task and appointment data
+
 use Moose::Util::TypeConstraints;
 
 class_type 'DateTime';
@@ -33,3 +36,24 @@ has end_date => (
 );
 
 1;
+
+=head1 DESCRIPTION
+
+Net::OpenXchange::Data::TaskAppointment is a role providing attributes for
+Net::OpenXchange::Object packages.
+
+=attr title (Str)
+
+Title of this task or appointment
+
+=attr start_date (DateTime)
+
+Starting date for this tak or appointment
+
+=attr end_date (DateTime)
+
+Ending date for this tak or appointment
+
+=head1 SEE ALSO
+
+http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedTaskAndAppointmentData

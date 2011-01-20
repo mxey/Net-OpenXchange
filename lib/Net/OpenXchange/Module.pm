@@ -2,6 +2,8 @@ package Net::OpenXchange::Module;
 use Moose::Role;
 use namespace::autoclean;
 
+# ABSTRACT: Role for OpenXchange modules
+
 requires qw(path class);
 
 has conn => (

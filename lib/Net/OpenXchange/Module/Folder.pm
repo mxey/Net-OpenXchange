@@ -1,6 +1,9 @@
 package Net::OpenXchange::Module::Folder;
 use Moose;
 use namespace::autoclean;
+
+# ABSTRACT: OpenXchange folder module
+
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::Folder;
 
@@ -74,3 +77,29 @@ sub _resolve_sub {
 }
 
 __PACKAGE__->meta->make_immutable;
+
+=head1 DESCRIPTION
+
+Net::OpenXchange::Module::Folder interfaces with the calendar API of OpenXchange. It
+works with instances of Net::OpenXchange::Object::Folder.
+
+When using Net::OpenXchange, an instance of this class is provided as the folder
+attribute.
+
+=method root
+
+    my @root_folders = $module_folder->root();
+
+Fetch root folders and return as list.
+
+=method list
+
+    my @child_folders = $module_folder->list($folder);
+
+Fetch children of given folder and return as list.
+
+=method resolve_path
+
+    my $folder = $module_folder->resolve_path('Public folders', 'Calendar');
+
+Walk folder hierarchy recursively and return folder with given path.

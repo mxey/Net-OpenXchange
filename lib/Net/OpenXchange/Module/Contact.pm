@@ -1,6 +1,9 @@
 package Net::OpenXchange::Module::Contact;
 use Moose;
 use namespace::autoclean;
+
+# ABSTRACT: OpenXchange contact module
+
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::Contact;
 

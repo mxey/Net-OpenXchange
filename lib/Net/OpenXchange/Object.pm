@@ -1,6 +1,9 @@
 package Net::OpenXchange::Object;
 use Moose::Role;
 use namespace::autoclean;
+
+# ABSTRACT: Role for OpenXchange objects
+
 use Carp;
 use Data::Dump qw(dump);
 use Try::Tiny;

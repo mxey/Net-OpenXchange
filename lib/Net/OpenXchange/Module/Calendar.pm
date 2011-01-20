@@ -1,6 +1,9 @@
 package Net::OpenXchange::Module::Calendar;
 use Moose;
 use namespace::autoclean;
+
+# ABSTRACT: OpenXchange calendar module
+
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::Appointment;
 
@@ -38,3 +41,21 @@ sub all {
 }
 
 __PACKAGE__->meta->make_immutable;
+
+=head1 DESCRIPTION
+
+Net::OpenXchange::Module::Calendar interfaces with the calendar API of OpenXchange. It
+works with instances of Net::OpenXchange::Object::Appointment.
+
+When using Net::OpenXchange, an instance of this class is provided as the calendar
+attribute.
+
+=method all
+
+    my @appointments = $module_calendar->all(
+        start => $start_dt,
+        end   => $end_dt,
+    );
+
+Fetch all appointments in the given date range and return a list of them.
+

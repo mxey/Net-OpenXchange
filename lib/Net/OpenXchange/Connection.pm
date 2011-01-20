@@ -2,6 +2,8 @@ package Net::OpenXchange::Connection;
 use Moose;
 use namespace::autoclean;
 
+# ABSTRACT: Connection to OpenXchange server
+
 use Carp;
 use HTTP::Request::Common;
 use JSON;
@@ -92,3 +94,54 @@ sub DEMOLISH {
 }
 
 __PACKAGE__->meta->make_immutable;
+
+=for Pod::Coverage BUILD DEMOLISH
+
+=method req_uri
+
+    my $uri = $conn->req_uri($path, %params);
+
+    $conn->req_uri('folder', action => 'root');
+    "https://ox.example.com/folder?action=root&session=abcdef&timezone=UTC"
+
+Construct a URI for an API request. $path is appended to the base URI and
+%params is converted into query parameters. Common query parameters are added
+as well.
+
+=method send
+
+    my $resdata = $conn->send($req);
+
+Send the request and decodes the JSON response body. If there is an error, it
+will raise an exception using confess.
+
+$req should be a HTTP::Request object which can be created by using the helper
+functions in HTTP::Request::Common:
+
+    use HTTP::Request::Common;
+
+    my $req = GET($conn->req_uri('login', action => 'logout'));
+    $conn->send($req);
+
+=attr uri
+
+Required constructor argument. URI to the HTTP API of your OpenXchange server. Please note you have
+to add the /ajax manually.
+
+=attr login
+
+Required constructor argument. Username to log into OpenXchange.
+
+=attr password
+
+Required constructor argument. Password to log into OpenXchange.
+
+=attr ua
+
+Read-only. Instance of LWP::UserAgent which is used to send the requests.
+
+=attr session
+
+Read-only. OpenXchange session ID.
+
+=cut

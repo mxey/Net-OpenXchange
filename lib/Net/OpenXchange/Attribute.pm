@@ -2,22 +2,33 @@ package Net::OpenXchange::Attribute;
 use Moose::Role;
 use namespace::autoclean;
 
+# ABSTRACT: Attribute trait for OpenXchange objects
+
 has ox_id => (
     is => 'ro',
     isa => 'Int',
     required => 1,
 );
 
-sub to_ox {
-    my ($self) = @_;
-    my $val = $self->get_value;
-
-    if ($self->type_constraint->is_a_type_of('DateTime')) {
-        return $val->to_epoch * 1000;
-    }
-    else {
-        return $val;
-    }
-}
-
 1;
+
+=head1 SYNOPSIS
+
+    package Net::OpenXchange::Data::MyFields;
+    use Moose::Role;
+
+    has myfield => (
+        traits => ['Net::OpenXchange::Attribute'],
+        is => 'rw',
+        isa => 'Str',
+        ox_id => 400,
+    );
+
+=head1 DESCRIPTION
+
+This trait is used for all attributes that map to OpenXchange's attributes.
+
+=attr ox_id
+
+ID of this attribute used by the OpenXchange API. Tables with these IDs can be
+found at http://oxpedia.org/wiki/index.php?title=HTTP_API
