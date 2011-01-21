@@ -4,6 +4,8 @@ use namespace::autoclean;
 
 # ABSTRACT: OpenXchange detailed appointment data
 
+use Net::OpenXchange::Types;
+
 has location => (
     traits => ['Net::OpenXchange::Attribute'],
     is => 'rw',
@@ -14,7 +16,8 @@ has location => (
 has full_time => (
     traits => ['Net::OpenXchange::Attribute'],
     is => 'rw',
-    #isa => 'Bool',
+    isa => 'Bool',
+    coerce => 1,
     ox_id => 401,
 );
 

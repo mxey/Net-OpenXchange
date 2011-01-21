@@ -4,6 +4,8 @@ use namespace::autoclean;
 
 # ABSTRACT: OpenXchange detailed folder data
 
+use Net::OpenXchange::Types;
+
 has title => (
     traits => ['Net::OpenXchange::Attribute'],
     is => 'rw',
@@ -21,6 +23,8 @@ has module => (
 has subfolders => (
     traits => ['Net::OpenXchange::Attribute'],
     is => 'rw',
+    isa => 'Bool',
+    coerce => 1,
     ox_id => 304,
 );
 
