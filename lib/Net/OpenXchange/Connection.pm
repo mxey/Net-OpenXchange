@@ -4,10 +4,11 @@ use namespace::autoclean;
 
 # ABSTRACT: Connection to OpenXchange server
 
-use Carp;
 use HTTP::Request::Common;
 use JSON;
 use LWP::UserAgent;
+use Net::OpenXchange::X::HTTP;
+use Net::OpenXchange::X::OX;
 use URI;
 
 has uri => (
@@ -81,9 +82,25 @@ sub _build_session {
 sub send {
     my ($self, $req) = @_;
     my $res = $self->ua->request($req);
-    confess $res->status_line unless $res->is_success;
+
+    unless ($res->is_success) {
+        Net::OpenXchange::X::HTTP->throw({
+            request => $req,
+            response => $res,
+        });
+    }
+
     my $resdataref = from_json($res->decoded_content);
-    confess $resdataref->{error} if $resdataref->{error};
+
+    if ($resdataref->{error}) {
+        Net::OpenXchange::X::OX->throw({
+            request => $req,
+            response => $res,
+            error => $resdataref->{error},
+            error_params => $resdataref->{error_params},
+        });
+    }
+
     return $resdataref;
 }
 
@@ -113,7 +130,8 @@ as well.
     my $resdata = $conn->send($req);
 
 Send the request and decodes the JSON response body. If there is an error, it
-will raise an exception using confess.
+throws Net::OpenXchange::X::HTTP for HTTP errors and Net::OpenXchange::X::OX
+for errors indicated by OX in the response body.
 
 $req should be a HTTP::Request object which can be created by using the helper
 functions in HTTP::Request::Common:

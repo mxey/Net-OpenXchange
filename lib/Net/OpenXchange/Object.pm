@@ -4,8 +4,7 @@ use namespace::autoclean;
 
 # ABSTRACT: Role for OpenXchange objects
 
-use Carp;
-use Data::Dump qw(dump);
+use Net::OpenXchange::X::Thaw;
 use Try::Tiny;
 
 sub _get_ox_attributes {
@@ -33,7 +32,11 @@ sub thaw {
         return $class->new(%data);
     }
     catch {
-        confess 'Could not thaw ' . dump(\%data) . "into $class: $_";
+        Net::OpenXchange::X::Thaw->throw(
+            class => $class,
+            data => \%data,
+            error => $_,
+        );
     };
 
     return $obj;

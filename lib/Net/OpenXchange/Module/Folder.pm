@@ -5,6 +5,7 @@ use namespace::autoclean;
 # ABSTRACT: OpenXchange folder module
 
 use HTTP::Request::Common;
+use Net::OpenXchange::X::NotFound;
 use Net::OpenXchange::Object::Folder;
 
 has 'path' => (
@@ -65,7 +66,15 @@ sub _resolve_sub {
     my %folders = map { $_->title => $_ } @$folders_ref;
 
     my $name = shift @$path_ref;
-    my $folder = $folders{$name} || confess "No folder $name";
+    my $folder = $folders{$name};
+
+    unless ($folder) {
+        Net::OpenXchange::X::NotFound->throw(
+            message => "No such folder: $name",
+            type => 'folder',
+            name => $name
+        );
+    }
 
     if ( @{$path_ref} ) {
         $folders_ref = [ $self->list($folder) ];
@@ -102,4 +111,5 @@ Fetch children of given folder and return as list.
 
     my $folder = $module_folder->resolve_path('Public folders', 'Calendar');
 
-Walk folder hierarchy recursively and return folder with given path.
+Walk folder hierarchy recursively and return folder with given path. Throws
+Net::OpenXchange::X::NotFound it a folder cannot be found along the path.
