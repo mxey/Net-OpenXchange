@@ -42,7 +42,7 @@ sub all {
 
 __PACKAGE__->meta->make_immutable;
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange::Module::Calendar interfaces with the calendar API of OpenXchange. It
 works with instances of Net::OpenXchange::Object::Appointment.

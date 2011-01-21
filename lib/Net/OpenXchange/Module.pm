@@ -46,3 +46,29 @@ sub ox_date {
 }
 
 1;
+
+=head1 SYNOPSIS
+
+Net::OpenXchange::Module is a role to be consumed by classes implementing
+methods for the OpenXchange API
+
+=attr conn
+
+Required constructor argument, the Net::OpenXchange::Connection object.
+
+=attr columns
+
+A string representing all attribute IDs to be used in 'columns' fields in
+requests.
+
+=method ox_time
+
+    my $time = $module->ox_time($dt);
+
+Convert the given DateTime object into an OpenXchange datetime.
+
+=method ox_date
+
+    my $date = $module->ox_date($dt);
+
+Convert the given DateTime object into an OpenXchange date.

@@ -24,7 +24,7 @@ has ox_id => (
         ox_id => 400,
     );
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 This trait is used for all attributes that map to OpenXchange's attributes.
 

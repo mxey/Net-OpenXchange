@@ -87,7 +87,7 @@ sub _resolve_sub {
 
 __PACKAGE__->meta->make_immutable;
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange::Module::Folder interfaces with the calendar API of OpenXchange. It
 works with instances of Net::OpenXchange::Object::Folder.

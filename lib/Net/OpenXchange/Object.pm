@@ -43,3 +43,22 @@ sub thaw {
 }
 
 1;
+
+=head1 SYNOPSIS
+
+Net::OpenXchange::Object is a role to be consumed by classes representing
+objects in OpenXchange, like contacts and appointments.
+
+=method get_ox_columns
+
+    my @columns = $object->get_ox_columns();
+
+Return a list of OpenXchange column IDs for all attributes of this object
+
+=method thaw
+
+    my $object = $class->thaw($values);
+
+Maps the values given as an array reference into an object, using the same order
+as returned by get_ox_columns
+=cut

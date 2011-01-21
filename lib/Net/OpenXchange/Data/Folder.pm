@@ -30,7 +30,7 @@ has subfolders => (
 
 1;
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange::Data::Folder is a role providing attributes for
 Net::OpenXchange::Object packages.

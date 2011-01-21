@@ -76,7 +76,7 @@ __PACKAGE__->meta->make_immutable;
 
 =pod
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange is the frontend to all packages of Net::OpenXchange.
 

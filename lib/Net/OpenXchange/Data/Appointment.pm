@@ -35,7 +35,7 @@ sub BUILD {
 
 =for Pod::Coverage BUILD
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange::Data::Appointment is a role providing attributes for
 Net::OpenXchange::Object packages.

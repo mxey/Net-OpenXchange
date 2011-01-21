@@ -52,7 +52,7 @@ sub list {
 
 __PACKAGE__->meta->make_immutable;
 
-=head1 DESCRIPTION
+=head1 SYNOPSIS
 
 Net::OpenXchange::Module::User interfaces with the user API of OpenXchange. It
 works with instances of Net::OpenXchange::Object::User.
