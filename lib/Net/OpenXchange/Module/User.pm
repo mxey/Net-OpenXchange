@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Module::User;
+## use critic
 use Moose;
 use namespace::autoclean;
 
@@ -8,14 +10,14 @@ use HTTP::Request::Common;
 use Net::OpenXchange::Object::User;
 
 has 'path' => (
-    is => 'ro',
-    isa => 'Str',
+    is      => 'ro',
+    isa     => 'Str',
     default => 'user',
 );
 
 has 'class' => (
-    is => 'ro',
-    isa => 'ClassName',
+    is      => 'ro',
+    isa     => 'ClassName',
     default => 'Net::OpenXchange::Object::User',
 );
 
@@ -26,7 +28,7 @@ sub all {
 
     my $req = GET(
         $self->_req_uri(
-            action => 'all',
+            action  => 'all',
             columns => $self->columns,
         )
     );
@@ -40,7 +42,7 @@ sub list {
 
     my $req = PUT(
         $self->_req_uri(
-            action => 'list',
+            action  => 'list',
             columns => $self->columns
         ),
         Content => encode_json(\@ids),
@@ -51,6 +53,7 @@ sub list {
 }
 
 __PACKAGE__->meta->make_immutable;
+1;
 
 =head1 SYNOPSIS
 

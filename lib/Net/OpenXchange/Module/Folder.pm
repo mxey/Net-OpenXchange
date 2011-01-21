@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Module::Folder;
+## use critic
 use Moose;
 use namespace::autoclean;
 
@@ -9,14 +11,14 @@ use Net::OpenXchange::X::NotFound;
 use Net::OpenXchange::Object::Folder;
 
 has 'path' => (
-    is => 'ro',
-    isa => 'Str',
+    is      => 'ro',
+    isa     => 'Str',
     default => 'folders',
 );
 
 has 'class' => (
-    is => 'ro',
-    isa => 'ClassName',
+    is      => 'ro',
+    isa     => 'ClassName',
     default => 'Net::OpenXchange::Object::Folder',
 );
 
@@ -27,7 +29,7 @@ sub root {
 
     my $req = GET(
         $self->_req_uri(
-            action => 'root',
+            action  => 'root',
             columns => $self->columns,
         )
     );
@@ -43,8 +45,8 @@ sub list {
 
     my $req = GET(
         $self->_req_uri(
-            action => 'list',
-            parent => $folder,
+            action  => 'list',
+            parent  => $folder,
             columns => $self->columns,
         )
     );
@@ -56,29 +58,29 @@ sub list {
 sub resolve_path {
     my ($self, @path) = @_;
 
-    my $folders_ref = [ $self->root ];
-    return $self->_resolve_sub( $folders_ref, \@path );
+    my $folders_ref = [$self->root];
+    return $self->_resolve_sub($folders_ref, \@path);
 }
 
 sub _resolve_sub {
     my ($self, $folders_ref, $path_ref) = @_;
 
-    my %folders = map { $_->title => $_ } @$folders_ref;
+    my %folders = map { $_->title => $_ } @{ $folders_ref };
 
-    my $name = shift @$path_ref;
+    my $name   = shift @{ $path_ref };
     my $folder = $folders{$name};
 
-    unless ($folder) {
+    if (!$folder) {
         Net::OpenXchange::X::NotFound->throw(
             message => "No such folder: $name",
-            type => 'folder',
-            name => $name
+            type    => 'folder',
+            name    => $name
         );
     }
 
-    if ( @{$path_ref} ) {
-        $folders_ref = [ $self->list($folder) ];
-        return $self->_resolve_sub( $folders_ref, $path_ref );
+    if (@{$path_ref}) {
+        $folders_ref = [$self->list($folder)];
+        return $self->_resolve_sub($folders_ref, $path_ref);
     }
     else {
         return $folder;
@@ -86,6 +88,7 @@ sub _resolve_sub {
 }
 
 __PACKAGE__->meta->make_immutable;
+1;
 
 =head1 SYNOPSIS
 

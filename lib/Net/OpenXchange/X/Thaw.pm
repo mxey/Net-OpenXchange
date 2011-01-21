@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::X::Thaw;
+## use critic
 use Moose;
 
 # ABSTRACT: Exception class for Object thawing errors
@@ -7,36 +9,37 @@ use Data::Dump qw(dump);
 extends 'Throwable::Error';
 
 has class => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
-    isa => 'ClassName',
+    isa      => 'ClassName',
 );
 
 has data => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
-    isa => 'HashRef',
+    isa      => 'HashRef',
 );
 
 has 'message' => (
-    is => 'ro',
-    required => 1,
+    is         => 'ro',
+    required   => 1,
     lazy_build => 1,
 );
 
 has 'error' => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
 );
 
 sub _build_message {
     my ($self) = @_;
-    return sprintf('Could not thaw class %s from data: %s, because of: %s ',
-        $self->class, dump($self->data), $self->error);
+    return sprintf 'Could not thaw class %s from data: %s, because of: %s ',
+        $self->class, dump($self->data), $self->error;
 
 }
 
 __PACKAGE__->meta->make_immutable(inline_constructor => 0);
+1;
 
 =head1 SYNOPSIS
 

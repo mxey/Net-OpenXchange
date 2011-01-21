@@ -1,12 +1,14 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Attribute;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
 # ABSTRACT: Attribute trait for OpenXchange objects
 
 has ox_id => (
-    is => 'ro',
-    isa => 'Int',
+    is       => 'ro',
+    isa      => 'Int',
     required => 1,
 );
 

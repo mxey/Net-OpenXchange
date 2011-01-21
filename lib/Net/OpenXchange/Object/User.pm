@@ -1,17 +1,20 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Object::User;
+## use critic
 use Moose;
 use namespace::autoclean;
 
 # ABSTRACT: OpenXchange user object
 
 with qw(
-    Net::OpenXchange::Object
-    Net::OpenXchange::Data::Common
-    Net::OpenXchange::Data::Contact
-    Net::OpenXchange::Data::User
+  Net::OpenXchange::Object
+  Net::OpenXchange::Data::Common
+  Net::OpenXchange::Data::Contact
+  Net::OpenXchange::Data::User
 );
 
 __PACKAGE__->meta->make_immutable;
+1;
 
 =head1 SYNOPSIS
 

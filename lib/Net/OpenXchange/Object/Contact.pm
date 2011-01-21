@@ -1,16 +1,19 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Object::Contact;
+## use critic
 use Moose;
 use namespace::autoclean;
 
 # ABSTRACT: OpenXchange contact object
 
 with qw(
-    Net::OpenXchange::Object
-    Net::OpenXchange::Data::Common
-    Net::OpenXchange::Data::Contact
+  Net::OpenXchange::Object
+  Net::OpenXchange::Data::Common
+  Net::OpenXchange::Data::Contact
 );
 
 __PACKAGE__->meta->make_immutable;
+1;
 
 =head1 SYNOPSIS
 

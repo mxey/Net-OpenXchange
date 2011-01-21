@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::X::OX;
+## use critic
 use Moose;
 
 # ABSTRACT: Exception class for OpenXchange errors
@@ -6,29 +8,30 @@ use Moose;
 extends 'Throwable::Error';
 
 has error => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
-    isa => 'Str',
+    isa      => 'Str',
 );
 
 has error_params => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
-    isa => 'ArrayRef',
+    isa      => 'ArrayRef',
 );
 
 has 'message' => (
-    is => 'ro',
-    required => 1,
+    is         => 'ro',
+    required   => 1,
     lazy_build => 1,
 );
 
 sub _build_message {
     my ($self) = @_;
-    return sprintf($self->error, @{ $self->error_params });
+    return sprintf $self->error, @{ $self->error_params };
 }
 
 __PACKAGE__->meta->make_immutable(inline_constructor => 0);
+1;
 
 =head1 SYNOPSIS
 

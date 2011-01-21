@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Data::Appointment;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
@@ -8,17 +10,17 @@ use Net::OpenXchange::Types;
 
 has location => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'rw',
-    isa => 'Str',
-    ox_id => 400,
+    is     => 'rw',
+    isa    => 'Str',
+    ox_id  => 400,
 );
 
 has full_time => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'rw',
-    isa => 'Bool',
+    is     => 'rw',
+    isa    => 'Bool',
     coerce => 1,
-    ox_id => 401,
+    ox_id  => 401,
 );
 
 requires qw(start_date end_date);
@@ -29,6 +31,7 @@ sub BUILD {
         $self->start_date->truncate(to => 'day');
         $self->end_date->truncate(to => 'day');
     }
+    return;
 }
 
 1;

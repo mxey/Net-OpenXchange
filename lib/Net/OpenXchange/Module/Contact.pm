@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Module::Contact;
+## use critic
 use Moose;
 use namespace::autoclean;
 
@@ -8,17 +10,18 @@ use HTTP::Request::Common;
 use Net::OpenXchange::Object::Contact;
 
 has 'path' => (
-    is => 'ro',
-    isa => 'Str',
+    is      => 'ro',
+    isa     => 'Str',
     default => 'contacts',
 );
 
 has 'class' => (
-    is => 'ro',
-    isa => 'ClassName',
+    is      => 'ro',
+    isa     => 'ClassName',
     default => 'Net::OpenXchange::Object::Contact',
 );
 
 with 'Net::OpenXchange::Module';
 
 __PACKAGE__->meta->make_immutable;
+1;

@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::X::NotFound;
+## use critic
 use Moose;
 
 # ABSTRACT: Exception class for missing objects
@@ -6,24 +8,25 @@ use Moose;
 extends 'Throwable::Error';
 
 has 'message' => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 has 'type' => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 has 'name' => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 __PACKAGE__->meta->make_immutable(inline_constructor => 0);
+1;
 
 =head1 SYNOPSIS
 

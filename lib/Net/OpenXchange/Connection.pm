@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Connection;
+## use critic
 use Moose;
 use namespace::autoclean;
 
@@ -12,41 +14,42 @@ use Net::OpenXchange::X::OX;
 use URI;
 
 has uri => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 has login => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 has password => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1,
 );
 
 has session => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     init_arg => undef,
-    lazy => 1,
-    builder => '_build_session',
+    lazy     => 1,
+    builder  => '_build_session',
 );
 
 has ua => (
-    is => 'ro',
-    isa => 'LWP::UserAgent',
-    lazy => 1,
+    is      => 'ro',
+    isa     => 'LWP::UserAgent',
+    lazy    => 1,
     builder => '_build_ua',
 );
 
 sub BUILD {
     my ($self) = @_;
-    $self->session; # login
+    $self->session;    # login
+    return;
 }
 
 sub _build_ua {
@@ -57,7 +60,7 @@ sub _build_ua {
 
 sub req_uri {
     my ($self, $path, %params) = @_;
-    my $uri = URI->new($self->uri . '/' . $path);
+    my $uri = URI->new($self->uri . q{/} . $path);
     $params{session} = $self->session if $self->session;
     $params{timezone} = 'UTC';
     $uri->query_form(%params);
@@ -68,8 +71,7 @@ sub _build_session {
     my ($self) = @_;
 
     my $req = POST(
-        $self->uri . '/login?action=login',
-        [
+        $self->uri . '/login?action=login', [
             name     => $self->login,
             password => $self->password,
         ]
@@ -79,26 +81,31 @@ sub _build_session {
     return $resdataref->{session};
 }
 
+## no critic qw(Subroutines::ProhibitBuiltinHomonyms)
 sub send {
     my ($self, $req) = @_;
     my $res = $self->ua->request($req);
 
-    unless ($res->is_success) {
-        Net::OpenXchange::X::HTTP->throw({
-            request => $req,
-            response => $res,
-        });
+    if (!$res->is_success) {
+        Net::OpenXchange::X::HTTP->throw(
+            {
+                request  => $req,
+                response => $res,
+            }
+        );
     }
 
     my $resdataref = decode_json($res->content);
 
     if ($resdataref->{error}) {
-        Net::OpenXchange::X::OX->throw({
-            request => $req,
-            response => $res,
-            error => $resdataref->{error},
-            error_params => $resdataref->{error_params},
-        });
+        Net::OpenXchange::X::OX->throw(
+            {
+                request      => $req,
+                response     => $res,
+                error        => $resdataref->{error},
+                error_params => $resdataref->{error_params},
+            }
+        );
     }
 
     return $resdataref;
@@ -108,9 +115,16 @@ sub DEMOLISH {
     my ($self) = @_;
     my $req = GET($self->req_uri('login', action => 'logout'));
     $self->send($req);
+    return;
 }
 
 __PACKAGE__->meta->make_immutable;
+1;
+
+=head1 SYNOPSIS
+
+Net::OpenXchange::Connection handles all the details of sending HTTP API
+requests to OpenXchange and decoding answers.
 
 =for Pod::Coverage BUILD DEMOLISH
 

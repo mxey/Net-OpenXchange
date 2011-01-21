@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::X::HTTP;
+## use critic
 use Moose;
 
 # ABSTRACT: Exception class for HTTP errors
@@ -6,35 +8,36 @@ use Moose;
 extends 'Throwable::Error';
 
 has request => (
-    is => 'ro',
-    required => 1,);
+    is       => 'ro',
+    required => 1,
+);
 
 has response => (
-    is => 'ro',
+    is       => 'ro',
     required => 1,
 );
 
 has 'message' => (
-    is => 'ro',
-    required => 1,
+    is         => 'ro',
+    required   => 1,
     lazy_build => 1,
 );
 
 has 'status_line' => (
-    is => 'ro',
-    isa => 'Str',
-    init_arg => undef,
+    is         => 'ro',
+    isa        => 'Str',
+    init_arg   => undef,
     lazy_build => 1,
 );
 
 sub _build_message {
     my ($self) = @_;
     return sprintf 'HTTP error %s during %s %s', $self->response->status_line,
-        $self->request->method, $self->request->uri;
+      $self->request->method, $self->request->uri;
 }
 
-
 __PACKAGE__->meta->make_immutable(inline_constructor => 0);
+1;
 
 =head1 SYNOPSIS
 

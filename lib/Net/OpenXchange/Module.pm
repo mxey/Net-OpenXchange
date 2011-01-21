@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Module;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
@@ -7,18 +9,16 @@ use namespace::autoclean;
 requires qw(path class);
 
 has conn => (
-    is => 'ro',
-    isa => 'Net::OpenXchange::Connection',
+    is       => 'ro',
+    isa      => 'Net::OpenXchange::Connection',
     required => 1,
-    handles => {
-        _send => 'send',
-    },
+    handles  => { _send => 'send', },
 );
 
 has columns => (
-    is => 'ro',
-    isa => 'Str',
-    lazy => 1,
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
     builder => '_build_columns',
 );
 
@@ -29,10 +29,7 @@ sub _build_columns {
 
 sub _req_uri {
     my ($self, %params) = @_;
-    return $self->conn->req_uri(
-        $self->path,
-        %params
-    );
+    return $self->conn->req_uri($self->path, %params);
 }
 
 sub ox_time {

@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Data::CommonFolder;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
@@ -6,9 +8,9 @@ use namespace::autoclean;
 
 has id => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'ro',
-    isa => 'Str',
-    ox_id => 1,
+    is     => 'ro',
+    isa    => 'Str',
+    ox_id  => 1,
 );
 
 1;

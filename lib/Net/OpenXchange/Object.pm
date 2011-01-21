@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Object;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
@@ -9,8 +11,9 @@ use Try::Tiny;
 
 sub _get_ox_attributes {
     my ($class) = @_;
-    return grep { $_->does('Net::OpenXchange::Attribute') }
-           $class->meta->get_all_attributes;
+    return
+      grep { $_->does('Net::OpenXchange::Attribute') }
+      $class->meta->get_all_attributes;
 }
 
 sub get_ox_columns {
@@ -24,7 +27,7 @@ sub thaw {
     my %data;
 
     foreach (@attrs) {
-        my $value = shift @$values_ref;
+        my $value = shift @{ $values_ref };
         $data{$_} = $value if defined $value;
     }
 
@@ -34,7 +37,7 @@ sub thaw {
     catch {
         Net::OpenXchange::X::Thaw->throw(
             class => $class,
-            data => \%data,
+            data  => \%data,
             error => $_,
         );
     };

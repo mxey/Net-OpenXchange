@@ -1,13 +1,15 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Object::Appointment;
+## use critic
 use Moose;
 use namespace::autoclean;
 
 # ABSTRACT: OpenXchange appointment object
 
 with qw(
-    Net::OpenXchange::Object
-    Net::OpenXchange::Data::Common
-    Net::OpenXchange::Data::TaskAppointment
+  Net::OpenXchange::Object
+  Net::OpenXchange::Data::Common
+  Net::OpenXchange::Data::TaskAppointment
 );
 
 # Seperated in two blocks because Data::Appointment requires
@@ -16,6 +18,7 @@ with qw(
 with 'Net::OpenXchange::Data::Appointment';
 
 __PACKAGE__->meta->make_immutable;
+1;
 
 =head1 SYNOPSIS
 

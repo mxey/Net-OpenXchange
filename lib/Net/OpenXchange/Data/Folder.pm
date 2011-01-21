@@ -1,4 +1,6 @@
+## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
 package Net::OpenXchange::Data::Folder;
+## use critic
 use Moose::Role;
 use namespace::autoclean;
 
@@ -8,24 +10,24 @@ use Net::OpenXchange::Types;
 
 has title => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'rw',
-    isa => 'Str',
-    ox_id => 300,
+    is     => 'rw',
+    isa    => 'Str',
+    ox_id  => 300,
 );
 
 has module => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'rw',
-    isa => 'Str',
-    ox_id => 301,
+    is     => 'rw',
+    isa    => 'Str',
+    ox_id  => 301,
 );
 
 has subfolders => (
     traits => ['Net::OpenXchange::Attribute'],
-    is => 'rw',
-    isa => 'Bool',
+    is     => 'rw',
+    isa    => 'Bool',
     coerce => 1,
-    ox_id => 304,
+    ox_id  => 304,
 );
 
 1;
