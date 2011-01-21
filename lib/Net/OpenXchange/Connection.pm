@@ -90,7 +90,7 @@ sub send {
         });
     }
 
-    my $resdataref = from_json($res->decoded_content);
+    my $resdataref = decode_json($res->content);
 
     if ($resdataref->{error}) {
         Net::OpenXchange::X::OX->throw({
