@@ -25,16 +25,22 @@ with 'Net::OpenXchange::Module';
 
 sub all {
     my ($self, %args) = @_;
+    my %query;
 
-    $args{folder} = $args{folder}->id            if ref $args{folder};
-    $args{start}  = $self->ox_date($args{start}) if $args{start};
-    $args{end}    = $self->ox_date($args{end})   if $args{end};
+    $query{folder} = $args{folder}->id if $args{folder};
+    $query{start}  = $self->ox_date($args{start}) if $args{start};
+
+    if ($args{end}) {
+        my $end = $args{end}->clone();
+        $end->add(days => 1);
+        $query{end} = $self->ox_date($end);
+    }
 
     my $req = GET(
         $self->_req_uri(
             action  => 'all',
             columns => $self->columns,
-            %args
+            %query,
         )
     );
 
