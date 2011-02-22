@@ -94,6 +94,12 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 SYNOPSIS
 
+Net::OpenXchange is new and very unfinished code. Its coverage of the OX API
+actions, objects and attributes is limited. However it already proved useful,
+so I decided to release this early experimental version. If you choose to use
+it, I would really appreciate bug reports, with or without attached patches :-)
+I'd also welcome help adding support for more parts of the OpenXchange API.
+
 Net::OpenXchange is the frontend to all packages of Net::OpenXchange.
 
     use Modern::Perl;
