@@ -29,4 +29,3 @@ documentation for provided methods and attributes.
 * L<Net::OpenXchange::Object|Net::OpenXchange::Object>
 * L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
 * L<Net::OpenXchange::Data::TaskAppointment|Net::OpenXchange::Data::TaskAppointment>
-use Modern::Perl;

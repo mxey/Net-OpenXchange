@@ -144,11 +144,12 @@ as well.
     my $resdata = $conn->send($req);
 
 Send the request and decodes the JSON response body. If there is an error, it
-throws Net::OpenXchange::X::HTTP for HTTP errors and Net::OpenXchange::X::OX
-for errors indicated by OX in the response body.
+throws L<Net::OpenXchange::X::HTTP|Net::OpenXchange::X::HTTP> for HTTP errors
+    and L<Net::OpenXchange::X::OX|Net::OpenXchange::X::OX> for errors indicated
+by OX in the response body.
 
-$req should be a HTTP::Request object which can be created by using the helper
-functions in HTTP::Request::Common:
+$req should be a L<HTTP::Request|HTTP::Request> object which can be created by
+using the helper functions in L<HTTP::Request::Common|HTTP::Request::Common>.
 
     use HTTP::Request::Common;
 

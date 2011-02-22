@@ -23,4 +23,3 @@ documentation for provided methods and attributes.
 =for :list
 * L<Net::OpenXchange::Object|Net::OpenXchange::Object>
 * L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
-use Modern::Perl;

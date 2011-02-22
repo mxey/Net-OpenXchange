@@ -55,7 +55,7 @@ methods for the OpenXchange API
 
 =attr conn
 
-Required constructor argument, the Net::OpenXchange::Connection object.
+Required constructor argument, the L<Net::OpenXchange::Connection|Net::OpenXchange::Connection> object.
 
 =attr columns
 

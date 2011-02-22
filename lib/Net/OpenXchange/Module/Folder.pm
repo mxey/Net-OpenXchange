@@ -92,11 +92,12 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 SYNOPSIS
 
-Net::OpenXchange::Module::Folder interfaces with the calendar API of OpenXchange. It
-works with instances of Net::OpenXchange::Object::Folder.
+L<Net::OpenXchange::Module::Folder|Net::OpenXchange::Module::Folder> interfaces
+with the calendar API of OpenXchange. It works with instances of
+L<Net::OpenXchange::Object::Folder|Net::OpenXchange::Object::Folder>.
 
-When using Net::OpenXchange, an instance of this class is provided as the folder
-attribute.
+When using L<Net::OpenXchange|Net::OpenXchange>, an instance of this class is
+provided as the C<folder> attribute.
 
 =method root
 

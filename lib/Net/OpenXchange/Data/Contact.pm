@@ -55,7 +55,7 @@ has email1 => (
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::Contact is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr display_name (Str)
 
@@ -75,4 +75,4 @@ Nick name of this contact
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedContactData
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedContactData|http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedContactData>

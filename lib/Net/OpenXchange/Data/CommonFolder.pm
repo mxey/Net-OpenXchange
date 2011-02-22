@@ -18,7 +18,7 @@ has id => (
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::CommonFolder is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr id (Str)
 
@@ -26,5 +26,4 @@ ID of this folder
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#CommonFolderData
-
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#CommonFolderData|http://oxpedia.org/wiki/index.php?title=HTTP_API#CommonFolderData>

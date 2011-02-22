@@ -44,7 +44,7 @@ has end_date => (
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::TaskAppointment is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr title (Str)
 
@@ -60,4 +60,4 @@ Ending date for this tak or appointment
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedTaskAndAppointmentData
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedTaskAndAppointmentData|http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedTaskAndAppointmentData>

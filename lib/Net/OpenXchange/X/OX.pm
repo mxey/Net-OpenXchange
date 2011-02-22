@@ -58,6 +58,6 @@ into error using sprintf
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#Error_handling
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#Error_handling|http://oxpedia.org/wiki/index.php?title=HTTP_API#Error_handling>
 
 =cut

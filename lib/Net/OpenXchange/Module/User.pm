@@ -57,11 +57,12 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 SYNOPSIS
 
-Net::OpenXchange::Module::User interfaces with the user API of OpenXchange. It
-works with instances of Net::OpenXchange::Object::User.
+L<Net::OpenXchange::Module::User|Net::OpenXchange::Module::User> interfaces
+with the user API of OpenXchange. It works with instances of
+L<Net::OpenXchange::Object::User|Net::OpenXchange::Object::User>.
 
-When using Net::OpenXchange, an instance of this class is provided as the user
-attribute.
+When using L<Net::OpenXchange|Net::OpenXchange>, an instance of this class is
+provided as the C<user> attribute.
 
 =method all
 

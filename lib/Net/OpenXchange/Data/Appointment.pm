@@ -41,7 +41,7 @@ sub BUILD {
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::Appointment is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr location (Str)
 
@@ -54,5 +54,4 @@ on object creation, start_date and end_date will be truncated to their date valu
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedAppointmentData
-
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedAppointmentData|http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedAppointmentData>

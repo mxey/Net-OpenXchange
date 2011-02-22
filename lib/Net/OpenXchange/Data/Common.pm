@@ -18,7 +18,7 @@ has id => (
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::Common is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr id (Int)
 
@@ -26,4 +26,4 @@ ID of this object
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#Common_object_data
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#Common_object_data|http://oxpedia.org/wiki/index.php?title=HTTP_API#Common_object_data>

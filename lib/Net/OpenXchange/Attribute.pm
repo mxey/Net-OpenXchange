@@ -33,4 +33,4 @@ This trait is used for all attributes that map to OpenXchange's attributes.
 =attr ox_id
 
 ID of this attribute used by the OpenXchange API. Tables with these IDs can be
-found at http://oxpedia.org/wiki/index.php?title=HTTP_API
+found at L<http://oxpedia.org/wiki/index.php?title=HTTP_API|http://oxpedia.org/wiki/index.php?title=HTTP_API>.

@@ -124,10 +124,9 @@ Net::OpenXchange connects to the server when creating an object instance and
 disconnects on object destruction. All errors are raised as exceptions.
 
 All Net::OpenXchange::Module::* packages are available as attributes on this
-class - for example Net::OpenXchange::Module::Folder becomes $ox->folder. See
-the documentation for these packages.
-
-FIXME: String exceptions should be changed to changed to classes with Throwable
+class - for example
+L<Net::OpenXchange::Module::Folder|Net::OpenXchange::Module::Folder> becomes
+$ox->folder. See the documentation for these packages.
 
 =for Pod::Coverage BUILD
 
@@ -156,23 +155,23 @@ Required constructor argument. Password to log into OpenXchange.
 
 =attr conn
 
-Read-only. An instance of Net::OpenXchange::Connection. You will not have to use this directly.
+Read-only. An instance of L<Net::OpenXchange::Connection|Net::OpenXchange::Connection>. You will not have to use this directly.
 
 =attr calendar
 
-Read-only. An instance of Net::OpenXchange::Module::Calendar. See its documentation for provided methods.
+Read-only. An instance of L<Net::OpenXchange::Module::Calendar|Net::OpenXchange::Module::Calendar>. See its documentation for provided methods.
 
 =attr contact
 
-Read-only. An instance of Net::OpenXchange::Module::Contact. See its documentation for provided methods.
+Read-only. An instance of L<Net::OpenXchange::Module::Contact|Net::OpenXchange::Module::Contact>. See its documentation for provided methods.
 
 =attr folder
 
-Read-only. An instance of Net::OpenXchange::Module::Folder. See its documentation for provided methods.
+Read-only. An instance of L<Net::OpenXchange::Module::Folder|Net::OpenXchange::Module::Folder>. See its documentation for provided methods.
 
 =attr user
 
-Read-only. An instance of Net::OpenXchange::Module::User. See its documentation for provided methods.
+Read-only. An instance of L<Net::OpenXchange::Module::User|Net::OpenXchange::Module::User>. See its documentation for provided methods.
 
 
 =cut

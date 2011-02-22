@@ -53,11 +53,12 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 SYNOPSIS
 
-Net::OpenXchange::Module::Calendar interfaces with the calendar API of OpenXchange. It
-works with instances of Net::OpenXchange::Object::Appointment.
+L<Net::OpenXchange::Module::Calendar|Net::OpenXchange::Module::Calendar>
+interfaces with the calendar API of OpenXchange. It works with instances of
+L<Net::OpenXchange::Object::Appointment|Net::OpenXchange::Object::Appointment>.
 
-When using Net::OpenXchange, an instance of this class is provided as the calendar
-attribute.
+When using L<Net::OpenXchange|Net::OpenXchange,> an instance of this class is
+provided as the C<calendar> attribute.
 
 =method all
 

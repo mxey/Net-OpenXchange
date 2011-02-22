@@ -32,7 +32,7 @@ has locale => (
 =head1 SYNOPSIS
 
 Net::OpenXchange::Data::User is a role providing attributes for
-Net::OpenXchange::Object packages.
+L<Net::OpenXchange::Object|Net::OpenXchange::Object> packages.
 
 =attr login_info (DateTime)
 
@@ -48,4 +48,4 @@ Selected locale of this user
 
 =head1 SEE ALSO
 
-http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedUserData
+L<http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedUserData|http://oxpedia.org/wiki/index.php?title=HTTP_API#DetailedUserData>

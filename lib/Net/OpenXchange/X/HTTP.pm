@@ -51,11 +51,12 @@ level that occur before decoding OpenXchange's JSON response body.
 
 =attr request
 
-Required, instance of HTTP::Request which was sent.
+Required, instance of L<HTTP::Request|HTTP::Request> which was sent.
 
 =attr response
 
-Required, instance of HTTP::Response which was received and contained the error
+Required, instance of L<HTTP::Response|HTTP::Response> which was received and
+contained the error
 
 =attr message
 
