@@ -6,6 +6,8 @@ use namespace::autoclean;
 
 # ABSTRACT: OpenXchange detailed contact data
 
+use MooseX::Types::Email qw(EmailAddress);
+
 has display_name => (
     traits => ['Net::OpenXchange::Attribute'],
     is     => 'rw',
@@ -32,6 +34,20 @@ has nickname => (
     is     => 'rw',
     isa    => 'Str',
     ox_id  => 515,
+);
+
+has telephone_business1 => (
+    traits => ['Net::OpenXchange::Attribute'],
+    is     => 'rw',
+    isa    => 'Str',
+    ox_id  => 542,
+);
+
+has email1 => (
+    traits => ['Net::OpenXchange::Attribute'],
+    is     => 'rw',
+    isa    => EmailAddress,
+    ox_id  => 555,
 );
 
 1;
