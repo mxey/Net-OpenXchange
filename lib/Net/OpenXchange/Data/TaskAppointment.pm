@@ -7,11 +7,14 @@ use namespace::autoclean;
 # ABSTRACT: OpenXchange detailed task and appointment data
 
 use Moose::Util::TypeConstraints;
+use Readonly;
+
+Readonly my $MICROSECOND => 1000;
 
 class_type 'DateTime';
 
 coerce 'DateTime' => from 'Int' =>
-  via { DateTime->from_epoch(epoch => $_ / 1000) };
+  via { DateTime->from_epoch(epoch => $_ / $MICROSECOND) };
 
 has title => (
     traits => ['Net::OpenXchange::Attribute'],

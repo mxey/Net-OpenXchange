@@ -13,3 +13,8 @@ coerce Bool, from JSONXSBool, via { 0 + $_ };
 coerce Bool, from JSONPPBool, via { 0 + $_ };
 
 1;
+
+=head1 SYNOPSIS
+
+Net::OpenXchange::Types is an internal module for Net::OpenXchange providing a
+bunch of Moose types and coercions.

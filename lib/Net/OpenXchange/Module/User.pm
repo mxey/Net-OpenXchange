@@ -27,7 +27,7 @@ sub all {
     my ($self) = @_;
 
     my $req = GET(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'all',
             columns => $self->columns,
         )
@@ -41,7 +41,7 @@ sub list {
     my ($self, @ids) = @_;
 
     my $req = PUT(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'list',
             columns => $self->columns
         ),

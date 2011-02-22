@@ -28,7 +28,7 @@ sub root {
     my ($self) = @_;
 
     my $req = GET(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'root',
             columns => $self->columns,
         )
@@ -44,7 +44,7 @@ sub list {
     $folder = $folder->id if ref $folder;
 
     my $req = GET(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'list',
             parent  => $folder,
             columns => $self->columns,

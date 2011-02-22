@@ -6,7 +6,11 @@ use namespace::autoclean;
 
 # ABSTRACT: Role for OpenXchange modules
 
+use Readonly;
+
 requires qw(path class);
+
+Readonly my $MICROSECOND => 1000;
 
 has conn => (
     is       => 'ro',
@@ -27,19 +31,19 @@ sub _build_columns {
     return join q{,}, $self->class->get_ox_columns;
 }
 
-sub _req_uri {
+sub req_uri {
     my ($self, %params) = @_;
     return $self->conn->req_uri($self->path, %params);
 }
 
 sub ox_time {
     my ($self, $dt) = @_;
-    return $dt->epoch * 1000;
+    return $dt->epoch * $MICROSECOND;
 }
 
 sub ox_date {
     my ($self, $dt) = @_;
-    return $dt->clone->truncate(to => 'day')->epoch * 1000;
+    return $dt->clone->truncate(to => 'day')->epoch * $MICROSECOND;
 }
 
 1;
@@ -69,3 +73,13 @@ Convert the given DateTime object into an OpenXchange datetime.
     my $date = $module->ox_date($dt);
 
 Convert the given DateTime object into an OpenXchange date.
+
+=method req_uri
+
+    my $uri = $module->req_uri($path, %params);
+
+    my $uri = $module->req_uri('folder', action => 'all');
+    # $uri is https://yourox/ajax/folder?action=all
+
+Construct a URI by appending the given path to the root URI and adding the
+params as URI query parameters.

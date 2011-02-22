@@ -27,7 +27,7 @@ sub all {
     my ($self, %args) = @_;
 
     my $req = GET(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'all',
             columns => $self->columns,
             folder => $args{folder}->id,
@@ -40,3 +40,19 @@ sub all {
 
 __PACKAGE__->meta->make_immutable;
 1;
+
+=head1 SYNOPSIS
+
+Net::OpenXchange::Module::Contact interfaces with the calendar API of
+OpenXchange. It works with instances of
+L<Net::OpenXchange::Object::Contact|Net::OpenXchange::Object::Contact>.
+
+When using L<Net::OpenXchange|Net::OpenXchange>, an instance of this class is
+provided as the C<contact> attribute.
+
+=method all
+
+    my @contacts = $module_calendar->all(folder => $folder);
+
+Fetch all contacts from the given folder
+

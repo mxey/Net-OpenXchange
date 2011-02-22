@@ -37,7 +37,7 @@ sub all {
     }
 
     my $req = GET(
-        $self->_req_uri(
+        $self->req_uri(
             action  => 'all',
             columns => $self->columns,
             %query,

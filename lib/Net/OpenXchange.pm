@@ -7,6 +7,7 @@ use namespace::autoclean;
 
 # ABSTRACT: Object-oriented interface to OpenXchange groupware
 
+use Carp;
 use Net::OpenXchange::Connection;
 
 # Create attributes and builder methods for modules
@@ -18,8 +19,16 @@ BEGIN {
         require     => 1,
     );
     foreach my $module (__PACKAGE__->_modules) {
-        $module =~ /^.+::(.+?)$/;
-        my $attr = lc $1;
+        my $attr;
+        if ($module =~ /^.+::(.+?)$/) {
+            $attr = lc $1;
+        }
+        else {
+            # perlcritic suggested to only use match variables in conditional
+            # blocks
+            confess "Module::Pluggable returned wrong module name: $module";
+        }
+
         __PACKAGE__->meta->add_attribute(
             $attr,
             is       => 'ro',
