@@ -133,8 +133,8 @@ $ox->folder. See the documentation for these packages.
 =method new
 
     my $ox = Net::OpenXchange->new(
-        uri => "https://ox.example.com/ajax",
-        login => $username,
+        uri      => "https://ox.example.com/ajax",
+        login    => $username,
         password => $password,
     );
 
