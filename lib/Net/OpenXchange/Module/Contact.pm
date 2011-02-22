@@ -23,5 +23,20 @@ has 'class' => (
 
 with 'Net::OpenXchange::Module';
 
+sub all {
+    my ($self, %args) = @_;
+
+    my $req = GET(
+        $self->_req_uri(
+            action  => 'all',
+            columns => $self->columns,
+            folder => $args{folder}->id,
+        )
+    );
+
+    my $res = $self->_send($req);
+    return map { $self->class->thaw($_) } @{ $res->{data} };
+}
+
 __PACKAGE__->meta->make_immutable;
 1;
