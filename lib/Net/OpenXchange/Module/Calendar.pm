@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Module::Calendar;
-## use critic
+
 use Moose;
 use namespace::autoclean;
 

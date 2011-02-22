@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Types;
-## use critic
+
 use MooseX::Types -declare => [qw(JSONXSBool JSONPPBool)];
 
 use MooseX::Types::Moose qw(Bool);

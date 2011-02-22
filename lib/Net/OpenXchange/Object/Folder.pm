@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Object::Folder;
-## use critic
+
 use Moose;
 use namespace::autoclean;
 
@@ -23,4 +23,4 @@ documentation for provided methods and attributes.
 =for :list
 * L<Net::OpenXchange::Object|Net::OpenXchange::Object>
 * L<Net::OpenXchange::Data::CommonFolder|Net::OpenXchange::Data::CommonFolder>
-* L<Net::OpenXchange::Data::Folder|Net::OpenXchange::Data::Folder>
+use Modern::Perl;

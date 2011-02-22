@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Object::Appointment;
-## use critic
+
 use Moose;
 use namespace::autoclean;
 
@@ -29,4 +29,4 @@ documentation for provided methods and attributes.
 * L<Net::OpenXchange::Object|Net::OpenXchange::Object>
 * L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
 * L<Net::OpenXchange::Data::TaskAppointment|Net::OpenXchange::Data::TaskAppointment>
-* L<Net::OpenXchange::Data::Appointment|Net::OpenXchange::Data::Appointment>
+use Modern::Perl;

@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::X::HTTP;
-## use critic
+
 use Moose;
 
 # ABSTRACT: Exception class for HTTP errors

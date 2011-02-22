@@ -18,10 +18,10 @@ exclude_functions = say
 lib_sections = NAME | SYNOPSIS | AUTHOR | COPYRIGHT AND LICENSE
 
 [TestingAndDebugging::RequireUseStrict]
-equivalent_modules = MooseX::Types
+equivalent_modules = Modern::Perl
 
 [TestingAndDebugging::RequireUseWarnings]
-equivalent_modules = MooseX::Types
+equivalent_modules = Modern::Perl
 
 [-Documentation::PodSpelling]
 
@@ -32,3 +32,6 @@ equivalent_modules = MooseX::Types
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 private_name_regex = _(?!build_)\w+
 
+[-Modules::RequireExplicitPackage]
+[Lax::RequireExplicitPackage::ExceptForPragmata]
+allowed_pragmata = Modern::Perl

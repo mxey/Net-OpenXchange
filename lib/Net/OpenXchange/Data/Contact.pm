@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Data::Contact;
-## use critic
+
 use Moose::Role;
 use namespace::autoclean;
 

@@ -1,6 +1,6 @@
-## no critic qw(TestingAndDebugging::RequireUseStrict TestingAndDebugging::RequireUseWarnings)
+use Modern::Perl;
 package Net::OpenXchange::Object::Contact;
-## use critic
+
 use Moose;
 use namespace::autoclean;
 
@@ -23,4 +23,4 @@ documentation for provided methods and attributes.
 =for :list
 * L<Net::OpenXchange::Object|Net::OpenXchange::Object>
 * L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
-* L<Net::OpenXchange::Data::Contact|Net::OpenXchange::Data::Contact>
+use Modern::Perl;
