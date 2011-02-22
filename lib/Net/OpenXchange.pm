@@ -101,7 +101,7 @@ Net::OpenXchange is the frontend to all packages of Net::OpenXchange.
     use DateTime::Format::Mail;
 
     my $ox = Net::OpenXchange->new(
-        uri      => 'https://ox.credativ.com/ajax',
+        uri      => 'https://ox.example.org/ajax',
         login    => 'myuser',
         password => 'mypassword',
     );
