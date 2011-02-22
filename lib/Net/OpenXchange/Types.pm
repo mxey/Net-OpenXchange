@@ -1,6 +1,8 @@
 use Modern::Perl;
 package Net::OpenXchange::Types;
 
+# ABSTRACT: Moose type library for Net::OpenXchange
+
 use MooseX::Types -declare => [qw(JSONXSBool JSONPPBool)];
 
 use MooseX::Types::Moose qw(Bool);
