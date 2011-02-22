@@ -21,6 +21,6 @@ Net::OpenXchange::Object::Contact consumes the following roles. Look at their
 documentation for provided methods and attributes.
 
 =for :list
-* L<Net::OpenXchange::Object>
-* L<Net::OpenXchange::Data::Common>
-* L<Net::OpenXchange::Data::Contact>
+* L<Net::OpenXchange::Object|Net::OpenXchange::Object>
+* L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
+* L<Net::OpenXchange::Data::Contact|Net::OpenXchange::Data::Contact>

@@ -21,6 +21,6 @@ Net::OpenXchange::Object::Folder consumes the following roles. Look at their
 documentation for provided methods and attributes.
 
 =for :list
-* L<Net::OpenXchange::Object>
-* L<Net::OpenXchange::Data::CommonFolder>
-* L<Net::OpenXchange::Data::Folder>
+* L<Net::OpenXchange::Object|Net::OpenXchange::Object>
+* L<Net::OpenXchange::Data::CommonFolder|Net::OpenXchange::Data::CommonFolder>
+* L<Net::OpenXchange::Data::Folder|Net::OpenXchange::Data::Folder>

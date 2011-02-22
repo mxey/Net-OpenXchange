@@ -26,7 +26,7 @@ Net::OpenXchange::Object::User consumes the following roles. Look at their
 documentation for provided methods and attributes.
 
 =for :list
-* L<Net::OpenXchange::Object>
-* L<Net::OpenXchange::Data::Common>
-* L<Net::OpenXchange::Data::TaskAppointment>
-* L<Net::OpenXchange::Data::Appointment>
+* L<Net::OpenXchange::Object|Net::OpenXchange::Object>
+* L<Net::OpenXchange::Data::Common|Net::OpenXchange::Data::Common>
+* L<Net::OpenXchange::Data::TaskAppointment|Net::OpenXchange::Data::TaskAppointment>
+* L<Net::OpenXchange::Data::Appointment|Net::OpenXchange::Data::Appointment>
