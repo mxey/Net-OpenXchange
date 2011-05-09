@@ -1,50 +1,62 @@
 use Modern::Perl;
 package Net::OpenXchange::Module;
 
-use Moose::Role;
+use MooseX::Role::Parameterized 0.03;
 use namespace::autoclean;
 
 # ABSTRACT: Role for OpenXchange modules
 
 use Readonly;
 
-requires qw(path class);
+parameter 'path' => (
+    isa      => 'Str',
+    required => 1,
+);
+
+parameter 'class' => (
+    isa      => 'Str',
+    required => 1,
+);
 
 Readonly my $MICROSECOND => 1000;
 
-has conn => (
-    is       => 'ro',
-    isa      => 'Net::OpenXchange::Connection',
-    required => 1,
-    handles  => { _send => 'send', },
-);
+role {
+    my ($p) = @_;
 
-has columns => (
-    is      => 'ro',
-    isa     => 'Str',
-    lazy    => 1,
-    builder => '_build_columns',
-);
+    has conn => (
+        is       => 'ro',
+        isa      => 'Net::OpenXchange::Connection',
+        required => 1,
+        handles  => { _send => 'send', },
+    );
 
-sub _build_columns {
-    my ($self) = @_;
-    return join q{,}, $self->class->get_ox_columns;
-}
+    has columns => (
+        is      => 'ro',
+        isa     => 'Str',
+        lazy    => 1,
+        builder => '_build_columns',
+    );
 
-sub req_uri {
-    my ($self, %params) = @_;
-    return $self->conn->req_uri($self->path, %params);
-}
+    method _build_columns => sub {
+        my ($self) = @_;
+        return join q{,}, $p->class->get_ox_columns;
+    };
 
-sub ox_time {
-    my ($self, $dt) = @_;
-    return $dt->epoch * $MICROSECOND;
-}
+    method req_uri => sub {
+        my ($self, %params) = @_;
+        return $self->conn->req_uri($p->path, %params);
+    };
 
-sub ox_date {
-    my ($self, $dt) = @_;
-    return $dt->clone->truncate(to => 'day')->epoch * $MICROSECOND;
-}
+    method ox_time => sub {
+        my ($self, $dt) = @_;
+        return $dt->epoch * $MICROSECOND;
+    };
+
+    method ox_date => sub {
+        my ($self, $dt) = @_;
+        return $dt->clone->truncate(to => 'day')->epoch * $MICROSECOND;
+    };
+};
 
 1;
 

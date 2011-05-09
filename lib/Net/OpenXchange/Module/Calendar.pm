@@ -9,19 +9,10 @@ use namespace::autoclean;
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::Appointment;
 
-has 'path' => (
-    is      => 'ro',
-    isa     => 'Str',
-    default => 'calendar',
-);
-
-has 'class' => (
-    is      => 'ro',
-    isa     => 'ClassName',
-    default => 'Net::OpenXchange::Object::Appointment',
-);
-
-with 'Net::OpenXchange::Module';
+with 'Net::OpenXchange::Module' => {
+    path => 'calendar',
+    class => 'Net::OpenXchange::Object::Appointment',
+};
 
 sub all {
     my ($self, %args) = @_;

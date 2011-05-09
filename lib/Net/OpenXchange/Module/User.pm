@@ -9,19 +9,10 @@ use namespace::autoclean;
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::User;
 
-has 'path' => (
-    is      => 'ro',
-    isa     => 'Str',
-    default => 'user',
-);
-
-has 'class' => (
-    is      => 'ro',
-    isa     => 'ClassName',
-    default => 'Net::OpenXchange::Object::User',
-);
-
-with 'Net::OpenXchange::Module';
+with 'Net::OpenXchange::Module' => {
+    path => 'user',
+    class => 'Net::OpenXchange::Object::User',
+};
 
 sub all {
     my ($self) = @_;

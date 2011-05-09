@@ -9,19 +9,10 @@ use namespace::autoclean;
 use HTTP::Request::Common;
 use Net::OpenXchange::Object::Contact;
 
-has 'path' => (
-    is      => 'ro',
-    isa     => 'Str',
-    default => 'contacts',
-);
-
-has 'class' => (
-    is      => 'ro',
-    isa     => 'ClassName',
-    default => 'Net::OpenXchange::Object::Contact',
-);
-
-with 'Net::OpenXchange::Module';
+with 'Net::OpenXchange::Module' => {
+    path => 'contacts',
+    class => 'Net::OpenXchange::Object::Contact',
+};
 
 sub all {
     my ($self, %args) = @_;

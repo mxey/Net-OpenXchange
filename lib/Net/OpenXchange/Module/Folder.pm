@@ -10,19 +10,10 @@ use HTTP::Request::Common;
 use Net::OpenXchange::X::NotFound;
 use Net::OpenXchange::Object::Folder;
 
-has 'path' => (
-    is      => 'ro',
-    isa     => 'Str',
-    default => 'folders',
-);
-
-has 'class' => (
-    is      => 'ro',
-    isa     => 'ClassName',
-    default => 'Net::OpenXchange::Object::Folder',
-);
-
-with 'Net::OpenXchange::Module';
+with 'Net::OpenXchange::Module' => {
+    path => 'folders',
+    class => 'Net::OpenXchange::Object::Folder',
+};
 
 sub root {
     my ($self) = @_;
