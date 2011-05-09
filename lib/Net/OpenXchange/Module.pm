@@ -14,7 +14,7 @@ parameter 'path' => (
 );
 
 parameter 'class' => (
-    isa      => 'Str',
+    isa      => 'ClassName',
     required => 1,
 );
 
